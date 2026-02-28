@@ -12,20 +12,32 @@
 body{
   margin:0;
   overflow:hidden;
-  background:black;
   font-family:Arial;
   color:white;
+
+  background:url("bg.jpg") no-repeat center center fixed;
+  background-size:cover;
+  background-color:black;
 }
 
-/* 💖 Floating Hearts */
-.hearts{
+/* Dark overlay */
+body::before{
+  content:"";
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:-1;
+}
+
+/* Floating Hearts */
+.hearts{
+  position:fixed;
+  width:100%;
+  height:100%;
   pointer-events:none;
-  overflow:hidden;
   z-index:0;
 }
 
@@ -42,7 +54,7 @@ body{
   100%{ transform:translateY(-110vh) scale(1.5); opacity:0;}
 }
 
-/* ✨ Stars */
+/* Stars */
 .star{
   position:absolute;
   width:3px;
@@ -57,14 +69,12 @@ body{
   to{opacity:1;}
 }
 
-/* Main Content */
 #mainContent{
   display:none;
   position:relative;
   z-index:2;
 }
 
-/* 💓 Birthday Text */
 .blood{
   font-size:28px;
   text-align:center;
@@ -73,7 +83,6 @@ body{
   margin-top:20px;
 }
 
-/* 3D Gallery */
 .container{
   position:relative;
   width:100%;
@@ -116,11 +125,9 @@ body{
   font-size:18px;
   color:#ff99aa;
   text-shadow:0 0 20px red;
-  pointer-events:none;
   text-align:center;
 }
 
-/* Secret Button */
 .secretBtn{
   position:fixed;
   bottom:20px;
@@ -189,7 +196,7 @@ Swal.fire("Wrong Password ❌").then(()=>askPassword());
 
 function askName(){
 Swal.fire({
-title:"Enter Her Name 💖",
+title:" Birthday girl name ⬇ #chota_don 💖",
 input:"text"
 }).then((res)=>{
 let name=res.value||"My Love";
@@ -202,7 +209,7 @@ confetti({particleCount:200,spread:120});
 
 window.onload=askPassword;
 
-/* Secret Paragraph */
+/* Secret Message */
 function unlockSecret(){
 Swal.fire({
 title:"Happy bday lado rani ❤🥰😘",
@@ -211,10 +218,8 @@ html:`
 Aaj ka din sirf tumhare naam hai Lado rani💞 <br><br>
 Tumhari dosti meri life ka sabse khoobsurat gift hai 🎁💖 <br><br>
 Har saal tum aur zyada successful, strong aur happy bano 🚀🌸 <br><br>
-Proud hoon ki tum meri best friend ho ❤️✨ Stay blessed and keep shining always 🌟💖 <br><br>
-Tumhari dosti meri life ka sabse beautiful chapter hai 📖✨ Tannu ❣️ <br><br>
-Jab bhi main weak feel karta hoon, tumhari baatein mujhe strong bana deti hain 💪💞 <br><br>
-Bhagwan kare tumhari life me sirf sukoon, success aur smile ho 🌸🌟
+Proud hoon ki tum meri best friend ho ❤️✨ <br><br>
+Bhagwan kare tumhari life me sirf sukoon, success aur smile ho 🌸🌟 I Love You so much tannu 
 </p>
 `,
 width:600,
@@ -253,7 +258,6 @@ startX=e.clientX;
 }
 });
 
-/* Mobile touch */
 gallery.addEventListener("touchstart",(e)=>{
 isDragging=true;
 startX=e.touches[0].clientX;
